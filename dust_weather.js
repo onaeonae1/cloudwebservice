@@ -84,9 +84,17 @@ async function getDust(lat, lng, stations){
 function clearResults(){
     dust_list.innerHTML="";
 }
+function undefinedCheck(data){
+    if(data===undefined){
+        return 4;
+    }
+    else{
+        return data-1;
+    }
+}
 function paintDust(element){ //paint dust information
-    const statusEmoji = ["😄", "🙂", '😷', '☠️'];
-    const statusList = ["좋음", "보통", "나쁨", "매우 나쁨"];
+    const statusEmoji = ["😄", "🙂", '😷', '☠️', '🤷‍♂️'];
+    const statusList = ["좋음", "보통", "나쁨", "매우 나쁨", "데이터 없음"];
     const li = document.createElement("li");
     const emojibtn = document.createElement("button");
     const span = document.createElement("span");
@@ -103,36 +111,36 @@ function paintDust(element){ //paint dust information
     const emj1 = document.createElement("button");
     const span1 = document.createElement("span");
     
-    emj1.innerText = statusEmoji[element.pm10Grade-1];
-    span1.innerText = `미세먼지(PM10) : ${element.pm10} ㎍/㎥ (${statusList[element.pm10Grade-1]})`;
+    emj1.innerText = statusEmoji[undefinedCheck(element.pm10Grade)];
+    span1.innerText = `미세먼지(PM10) : ${element.pm10} ㎍/㎥ (${statusList[undefinedCheck(element.pm10Grade)]})`;
     
     const li2 = document.createElement("li");
     const emj2 = document.createElement("button");
     const span2 = document.createElement("span");
     
-    emj2.innerText=statusEmoji[element.pm25Grade-1];
-    span2.innerText  = `초미세먼지(PM2.5) : ${element.pm25} ㎍/㎥ (${statusList[element.pm25Grade-1]})`;
+    emj2.innerText=statusEmoji[undefinedCheck(element.pm25Grade)];
+    span2.innerText  = `초미세먼지(PM2.5) : ${element.pm25} ㎍/㎥ (${statusList[undefinedCheck(element.pm25Grade)]})`;
     
     const li3 = document.createElement("li");
     const emj3 = document.createElement("button");
     const span3=  document.createElement("span");
 
-    emj3.innerText = statusEmoji[element.coGrade-1];
-    span3.innerText = `일산화탄소 : ${element.co} ppm (${statusList[element.coGrade-1]})`;
+    emj3.innerText = statusEmoji[undefinedCheck(element.coGrade)];
+    span3.innerText = `일산화탄소 : ${element.co} ppm (${statusList[undefinedCheck(element.coGrade)]})`;
     
     const li4 = document.createElement("li");
     const emj4 = document.createElement("button");
     const span4 = document.createElement("span");
 
-    emj4.innerText = statusEmoji[element.o3Grade-1];
-    span4.innerText = `오존 : ${element.o3} ppm (${statusList[element.o3Grade-1]})`;
+    emj4.innerText = statusEmoji[undefinedCheck(element.o3Grade)];
+    span4.innerText = `오존 : ${element.o3} ppm (${statusList[undefinedCheck(element.o3Grade)]})`;
 
     const li5 = document.createElement("li");
     const emj5 = document.createElement("button");
     const span5 = document.createElement("span");
 
-    emj5.innerText = statusEmoji[element.so2Grade-1];
-    span5.innerText =  `아황산가스 : ${element.so2} ppm (${statusList[element.so2Grade-1]})`;
+    emj5.innerText = statusEmoji[element.so2Grade];
+    span5.innerText =  `아황산가스 : ${element.so2} ppm (${statusList[element.so2Grade]})`;
 
     
     li1.appendChild(emj1);
