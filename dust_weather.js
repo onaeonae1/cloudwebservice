@@ -7,7 +7,9 @@ const WEATHER_KEY = "3ccf53163b8ca88eadc8eb78cd3c83a1";
 let stations = [];
 
 async function updateLocation(){
+    clearResults();
     clearStations();
+    saveStations();
     askForCoords();
     await loadCoords();
     console.log("위치 업데이트 완료");
@@ -79,8 +81,10 @@ async function getDust(lat, lng, stations){
         })
     }
 }
+function clearResults(){
+    dust_list.innerHTML="";
+}
 function paintDust(element){ //paint dust information
-    console.log(element);
     const statusEmoji = ["😄", "🙂", '😷', '☠️'];
     const statusList = ["좋음", "보통", "나쁨", "매우 나쁨"];
     const li = document.createElement("li");
