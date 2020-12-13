@@ -67,12 +67,9 @@ function paintTotal(element){
 function paintCovid(element){
     //console.log(element);
     const li = document.createElement("li");
-    const span = document.createElement("span");
     const emjbtn = document.createElement("button");
-    span.innerText = `${element.city}`;
-    emjbtn.innerText = "🌆";
+    emjbtn.innerText = `${element.city}`;
     li.appendChild(emjbtn);
-    li.appendChild(span);
     const ul = document.createElement("ul");
     const detailSpan = paintTotal(element);
     ul.appendChild(detailSpan);
