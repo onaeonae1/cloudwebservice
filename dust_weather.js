@@ -139,8 +139,8 @@ function paintDust(element){ //paint dust information
     const emj5 = document.createElement("button");
     const span5 = document.createElement("span");
 
-    emj5.innerText = statusEmoji[element.so2Grade];
-    span5.innerText =  `아황산가스 : ${element.so2} ppm (${statusList[element.so2Grade]})`;
+    emj5.innerText = statusEmoji[undefinedCheck(element.so2Grade)];
+    span5.innerText =  `아황산가스 : ${element.so2} ppm (${statusList[undefinedCheck(element.so2Grade)]})`;
 
     
     li1.appendChild(emj1);
