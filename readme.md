@@ -20,3 +20,9 @@
 - AWS API Gateway
 - AWS Lambda
 - 기본적인 JS
+
+### 메인 화면
+![img1](/example/main.PNG)
+
+### 코로나19 데이터
+![img2](/example/covid.PNG)
